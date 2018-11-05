@@ -3,15 +3,16 @@
 library ieee;
 use ieee.std_logic_1164.all; 
 
-entity buttonSync is
-	port	(
-			KEY0, KEY1, KEY2, KEY3, CLK: in std_logic;
-			BTN0, BTN1, BTN2, BTN3: out std_logic
-			);
-end buttonSync;
+entity ButtonSync is
+	port
+	(
+		KEY0, KEY1, KEY2, KEY3, CLK: in std_logic;
+		BTN0, BTN1, BTN2, BTN3: out std_logic
+	);
+end ButtonSync;
 
 
-architecture ButtonSyncImpl of buttonSync is
+architecture ButtonSyncImpl of ButtonSync is
 type STATES is (EsperaApertar, SaidaAtiva, EsperaSoltar);
 signal btn0state, btn1state, btn2state, btn3state : STATES := EsperaApertar;
 signal btn0next, btn1next, btn2next, btn3next : STATES := EsperaApertar;
