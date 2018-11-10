@@ -28,8 +28,12 @@ architecture top of frequency_divider is
 		begin
 			if reset= '0' then
 				counter <= x"0000000";
-			elsif (clock'event and clock= '1' and enable = '0') then
-				counter <= counter + 1;
+			elsif rising_edge(clock) then
+				if enable = '0' then
+				
+					counter <= counter + 1;
+				
+				end if;
 
 				if (counter = x"17D783F" OR counter = x"2FAF07F" OR counter = x"5F5E0FF" OR counter = x"BEBC1FF") then --4hz
 					clock_4hz <= '1';
