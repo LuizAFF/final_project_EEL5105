@@ -26,7 +26,7 @@ architecture bhv of control is
 			begin
 				if (BTN(0) = '0') then
 					c_state <= start;
-				elsif (clock'event AND clock = '1') then
+				elsif rising_edge(clk) then
 					c_state <= n_state;
 				end if;
 		end process;
