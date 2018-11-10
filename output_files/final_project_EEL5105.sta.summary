@@ -1,0 +1,133 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'BTN[0]'
+Slack : -1.709
+TNS   : -9.863
+
+Type  : Slow 1100mV 85C Model Setup 'clock'
+Slack : -0.200
+TNS   : -0.373
+
+Type  : Slow 1100mV 85C Model Hold 'BTN[0]'
+Slack : -1.071
+TNS   : -6.141
+
+Type  : Slow 1100mV 85C Model Hold 'clock'
+Slack : -0.544
+TNS   : -2.159
+
+Type  : Slow 1100mV 85C Model Recovery 'clock'
+Slack : 0.011
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'clock'
+Slack : -0.639
+TNS   : -3.814
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.394
+TNS   : -3.072
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'BTN[0]'
+Slack : 0.179
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'BTN[0]'
+Slack : -1.787
+TNS   : -10.461
+
+Type  : Slow 1100mV 0C Model Setup 'clock'
+Slack : -0.113
+TNS   : -0.189
+
+Type  : Slow 1100mV 0C Model Hold 'BTN[0]'
+Slack : -1.113
+TNS   : -6.298
+
+Type  : Slow 1100mV 0C Model Hold 'clock'
+Slack : -0.617
+TNS   : -2.709
+
+Type  : Slow 1100mV 0C Model Recovery 'clock'
+Slack : 0.175
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Removal 'clock'
+Slack : -0.762
+TNS   : -4.547
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.394
+TNS   : -3.326
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'BTN[0]'
+Slack : 0.184
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'BTN[0]'
+Slack : -0.696
+TNS   : -3.871
+
+Type  : Fast 1100mV 85C Model Setup 'clock'
+Slack : 0.355
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'BTN[0]'
+Slack : -0.550
+TNS   : -3.125
+
+Type  : Fast 1100mV 85C Model Hold 'clock'
+Slack : -0.373
+TNS   : -1.554
+
+Type  : Fast 1100mV 85C Model Recovery 'clock'
+Slack : -0.139
+TNS   : -0.833
+
+Type  : Fast 1100mV 85C Model Removal 'clock'
+Slack : -0.409
+TNS   : -2.449
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
+Slack : -0.082
+TNS   : -0.491
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'BTN[0]'
+Slack : -0.043
+TNS   : -0.099
+
+Type  : Fast 1100mV 0C Model Setup 'BTN[0]'
+Slack : -0.666
+TNS   : -3.658
+
+Type  : Fast 1100mV 0C Model Setup 'clock'
+Slack : 0.400
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'BTN[0]'
+Slack : -0.523
+TNS   : -3.018
+
+Type  : Fast 1100mV 0C Model Hold 'clock'
+Slack : -0.377
+TNS   : -1.658
+
+Type  : Fast 1100mV 0C Model Recovery 'clock'
+Slack : -0.093
+TNS   : -0.557
+
+Type  : Fast 1100mV 0C Model Removal 'clock'
+Slack : -0.431
+TNS   : -2.581
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
+Slack : -0.083
+TNS   : -0.496
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'BTN[0]'
+Slack : -0.040
+TNS   : -0.227
+
+------------------------------------------------------------

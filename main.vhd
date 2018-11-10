@@ -1,64 +1,46 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
 entity main is
 	port	(	
 			SW: in std_logic_vector(9 downto 0);
-			Clock_50: in std_logic;
+			BTN: in std_logic_vector(3 downto 0);
+			CLOCK_50: in std_logic;
 			KEY: in std_logic_vector(3 downto 0);
 			LEDR: out std_logic_vector(9 downto 0);
-			HEX0: out std_logic_vector(6 downto 0);
-			HEX1: out std_logic_vector(6 downto 0);
-			HEX2: out std_logic_vector(6 downto 0);
-			HEX3: out std_logic_vector(6 downto 0);
-			HEX4: out std_logic_vector(6 downto 0);
-			HEX5: out std_logic_vector(6 downto 0)
+			HEX0, HEX1, HEX2, HEX3, HEX4, HEX5: out std_logic_vector(6 downto 0)
 			);
 end main;
 
 architecture top of main is
 
-	component ROM0 is
-		port (
-				address : in std_logic_vector(2 downto 0);
-				data : out std_logic_vector(6 downto 0) 
+	component control is
+		port	(	
+				R, SEL: out std_logic_vector(1 downto 0);
+				E: out std_logic_vector(4 downto 0);
+				BTN: in std_logic_vector(2 downto 0);
+				clock: in std_logic;
+				sw_error, end_game, end_time, end_round, win0, win1: in std_logic
 				);
 	end component;
 	
-	
-	component ROM1 is
-		port (
-				address : in std_logic_vector(2 downto 0);
-				data : out std_logic_vector(6 downto 0) 
+	component datapath is
+		port	(
+				R: in std_logic_vector(1 downto 0);
+				E: in std_logic_vector(4 downto 0);
+				SEL: in std_logic_vector(1 downto 0);
+				clock: in std_logic;
+				sw_error, end_game, end_time, win0, win1: out std_logic
 				);
-	end ROM0;
-	
+	end component;
 	
 	component buttonSync is
 		port	(
 				KEY0, KEY1, KEY2, KEY3, CLK: in std_logic;
-				BTN0, BTN1, BTN2, BTN3: out std_logic	
+				BTN0, BTN1, BTN2, BTN3: out std_logic;
 				);
 	end component;
-	
-	
-	component frequency_divider is
-		port	( 	
-				option: in std_logic_vector(1 downto 0); --option from the input: 00 stands for 0.5Hz, and it is doubled as the option increases by 1
-				reset: in std_logic;
-				clock: in std_logic;
-				chosen_clock: out std_logic
-				);
-	end component;
-	
-	
-	component decod7seg is
-		port	(
-				C: in std_logic_vector(3 downto 0);
-				F:	out std_logic_vector(6 downto 0)
-				);
-	end component;
-		
 
 	signal	BTN, timer, roundmsb, roundlsb: std_logic_vector(3 downto 0);
 				linha, coluna: std_logic_vector(2 downto 0);
@@ -66,13 +48,14 @@ architecture top of main is
 				
 	begin
 		
-		display2_01:	decod7seg port map ('0' & coluna, coluna7seg);
-		display2_10:	decod7seg port map (roundlsb, roundlsb7seg);
-		display3_01:	decod7seg port map ('0' & linha, linha7seg);
-		display3_10:	decod7seg port map (roundmsb, roundmsb7seg);
-		display4:	decod7seg port map (timer, timer7seg);
+		--display2_01:	decod7seg port map ('0' & coluna, coluna7seg);
+		--display2_10:	decod7seg port map (roundlsb, roundlsb7seg);
+		--display3_01:	decod7seg port map ('0' & linha, linha7seg);
+		--display3_10:	decod7seg port map (roundmsb, roundmsb7seg);
+		--display4:	decod7seg port map (timer, timer7seg);
 		
-		--multiplexadores dos HEX(5 downto 0)
+		--multiplexadores dos HEX(5 downto 0): transformar numa entity separada
+		HEX0
 		HEX1	<=	"1000111" when SEL = "00" else
 					"1000001" when SEL = "01" else
 					"1000001" when SEL = "10" else

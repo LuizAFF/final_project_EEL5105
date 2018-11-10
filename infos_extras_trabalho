@@ -1,0 +1,11 @@
+Desafios:
+1	-	Desenvolver uma "memória fantasma": como comparar as posições dos barcos e mudá-las após (para que um mesmo ponto não possa ser contado mais de uma vez);
+
+2.1	-	Definir um decodificador para as colunas: o vetor "0010000" representa a 5ª coluna, não o número 16(10);
+
+2.2	-	O decodificador para as colunas deve apresentar configurações para as 7 colunas (especificamente). Caso mais de uma coluna esteja selecionada (mais de um '1' no vetor), o display exibe a letra E (error);
+
+Conclusões:
+1	-	Se a pontuação for 8, vitória;
+
+2	-	É de responsabilidade do jogador não repetir os mesmos pontos do tabuleiro;

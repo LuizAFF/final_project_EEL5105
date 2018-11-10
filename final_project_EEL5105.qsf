@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEMA5F31C6
-set_global_assignment -name TOP_LEVEL_ENTITY final_project_EEL5105
+set_global_assignment -name TOP_LEVEL_ENTITY control
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "14:49:09  OCTOBER 31, 2018"
 set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
@@ -52,3 +52,12 @@ set_global_assignment -name VHDL_FILE frequency_divisor.vhd
 set_global_assignment -name VHDL_FILE frequency_divider.vhd
 set_global_assignment -name VHDL_FILE decod7seg.vhd
 set_global_assignment -name VHDL_FILE ROM1.vhd
+set_global_assignment -name VHDL_FILE datapath.vhd
+set_global_assignment -name VHDL_FILE control.vhd
+set_global_assignment -name VHDL_FILE multiplexer.vhd
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE multiplexer_8bits.vhd
+set_global_assignment -name VHDL_FILE multiplexer_7bits.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

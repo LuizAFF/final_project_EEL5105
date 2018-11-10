@@ -1,0 +1,13 @@
+ibrary ieee;
+use ieee.std_logic_1164.all;
+
+entity multiplexer is
+	port	(
+			
+			);
+end multiplexer;
+
+architecture mux of multiplexer is
+	begin
+	
+end mux;

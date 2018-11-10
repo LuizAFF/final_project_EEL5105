@@ -1,0 +1,10 @@
+
+State Machine - |control|c_state
+Name c_state.wait_state c_state.next_round c_state.check c_state.result c_state.play c_state.setup c_state.start 
+c_state.start 0 0 0 0 0 0 0 
+c_state.setup 0 0 0 0 0 1 1 
+c_state.play 0 0 0 0 1 0 1 
+c_state.result 0 0 0 1 0 0 1 
+c_state.check 0 0 1 0 0 0 1 
+c_state.next_round 0 1 0 0 0 0 1 
+c_state.wait_state 1 0 0 0 0 0 1 

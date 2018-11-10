@@ -4,52 +4,64 @@ use ieee.std_logic_unsigned.all;
 
 entity frequency_divider is
 	port ( 	
-			option: in std_logic_vector(1 downto 0); --option from the input: 00 stands for 0.5Hz, and it is doubled as the option number increases by 1
-			reset: in std_logic;
-			clock: in std_logic;
-			chosen_clock: out std_logic
+			reset, enable, clock: in std_logic;
+			Sel: in std_logic_vector(1 downto 0);
+			Output: out std_logic
 			);
 			
 end frequency_divider;
 
 architecture top of frequency_divider is
+	
+	component multiplexer is
+		port	(
+				a, b, c, d: in std_logic; 
+				Sel : in std_logic_vector(1 downto 0);
+				Output : out std_logic
+				);
+	end component;
+
 	signal counter: std_logic_vector(27 downto 0);	-- registra valor da contagem
+	signal clock_05hz, clock_1hz, clock_2hz, clock_4hz: std_logic;
 	begin
 		P1: process(clock, reset, counter)
 		begin
 			if reset= '0' then
-				counter <= x"0000000“;
-			elsif clock'event and clock= ‘1' then
+				counter <= x"0000000";
+			elsif (clock'event and clock= '1' and enable = '0') then
 				counter <= counter + 1;
-				if option = "00" then
-					if counter = x"17D783F" then
-						counter <= x"0000000";
-						chosen_clock <= '1';
-					else
-						chosen_clock <= '0';
-					end if;
-				elsif option = "01" then
-					if counter = x"2FAF07F" then
-						counter <= x"0000000";
-						chosen_clock <= '1';
-					else
-						chosen_clock <= '0';
-					end if;
-				elsif option = "10" then
-					if counter = x"5F5E0FF" then
-						counter <= x"0000000";
-						chosen_clock <= '1';
-					else
-						chosen_clock <= '0';
-					end if;
+
+				if (counter = x"17D783F" OR counter = x"2FAF07F" OR counter = x"5F5E0FF" OR counter = x"BEBC1FF") then --4hz
+					clock_4hz <= '1';
 				else
-					if counter = x"BEBC1FF" then
-						counter <= x"0000000";
-						chosen_clock <= '1';
-					else
-						chosen_clock <= '0';
-					end if;
+					clock_4hz <= '0';
+				end if;
+
+				if (counter = x"2FAF07F" OR counter = x"5F5E0FF" OR counter = x"BEBC1FF") then --2hz
+					clock_2hz <= '1';
+				else
+					clock_2hz <= '0';
+				end if;
+
+				if (counter = x"5F5E0FF" OR counter = x"BEBC1FF") then --1hz
+					clock_1hz <= '1';
+				else
+					clock_1hz <= '0';
+				end if;
+
+				if counter = x"BEBC1FF" then --0.5hz
+					counter <= x"0000000";
+					clock_05hz <= '1';
+				else
+					clock_05hz <= '0';
 				end if;
 			end if;
 		end process;
-	end top;
+	
+	--clock_05hz_4bits <= "000" & clock_05hz;
+	--clock_1hz_4bits <= "000" & clock_1hz;
+	--clock_2hz_4bits <= "000" & clock_2hz;
+	--clock_4hz_4bits <= "000" & clock_4hz;
+	mux: multiplexer port map (clock_05hz, clock_1hz, clock_2hz, clock_4hz, Sel, Output);
+	
+end top;
