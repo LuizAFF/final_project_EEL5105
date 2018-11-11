@@ -9,7 +9,7 @@ entity frequency_divider is
 			Output: out std_logic
 			);
 			
-end frequency_divider;
+end entity;
 
 architecture top of frequency_divider is
 	
@@ -28,8 +28,12 @@ architecture top of frequency_divider is
 		begin
 			if reset= '0' then
 				counter <= x"0000000";
-			elsif (clock'event and clock= '1' and enable = '0') then
-				counter <= counter + 1;
+			elsif rising_edge(clock) then
+				if enable = '0' then
+				
+					counter <= counter + 1;
+				
+				end if;
 
 				if (counter = x"17D783F" OR counter = x"2FAF07F" OR counter = x"5F5E0FF" OR counter = x"BEBC1FF") then --4hz
 					clock_4hz <= '1';
@@ -62,6 +66,7 @@ architecture top of frequency_divider is
 	--clock_1hz_4bits <= "000" & clock_1hz;
 	--clock_2hz_4bits <= "000" & clock_2hz;
 	--clock_4hz_4bits <= "000" & clock_4hz;
-	mux: multiplexer port map (clock_05hz, clock_1hz, clock_2hz, clock_4hz, Sel, Output);
+	mux: multiplexer generic map(BUS_WIDTH => 1)
+			 port map (clock_05hz, clock_1hz, clock_2hz, clock_4hz, Sel, Output);
 	
-end top;
+end architecture;
