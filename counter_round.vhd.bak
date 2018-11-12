@@ -1,0 +1,30 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity counter_round is 
+	port	(
+			R, E, Clock: in std_logic;
+			counter: out std_logic_vector(3 downto 0)
+			);
+end entity;
+
+architecture bhv of counter_round is
+	
+	signal count: std_logic_vector(3 downto 0);
+	
+	begin
+		process(clock, enable)
+		begin
+			if (enable = '1') then
+				elsif (rising_edge(clock) and clock = '1') then
+					count <= count + "00001";
+					counter <= count;
+						if (count = "11101") then
+							count <= "00000";
+						end if;
+			end if;
+		end process;
+		
+end architecture;
+	

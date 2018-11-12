@@ -5,7 +5,7 @@ entity ROM1 is
 	port (address : in std_logic_vector(2 downto 0);
          data : out std_logic_vector(6 downto 0) 
 			);
-end ROM1;
+end entity;
 
 architecture Rom_Arch of ROM1 is
 	type memory is array (0 to 7) of std_logic_vector(6 downto 0);
@@ -33,4 +33,4 @@ begin
        when others => data <= "0000000";
        end case;
   end process;
-end architecture Rom_Arch;
+end architecture;

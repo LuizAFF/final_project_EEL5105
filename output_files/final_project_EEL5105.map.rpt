@@ -1,5 +1,5 @@
 Analysis & Synthesis report for final_project_EEL5105
-Sat Nov 10 18:13:43 2018
+Mon Nov 12 17:32:07 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,13 +13,39 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |control|c_state
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  8. State Machine - |main|control:ctrl|c_state
+  9. State Machine - |main|buttonSync:btn_sync|btn3state
+ 10. State Machine - |main|buttonSync:btn_sync|btn2state
+ 11. State Machine - |main|buttonSync:btn_sync|btn1state
+ 12. State Machine - |main|buttonSync:btn_sync|btn0state
+ 13. Registers Removed During Synthesis
+ 14. Removed Registers Triggering Further Register Optimizations
+ 15. General Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Parameter Settings for User Entity Instance: datapath:data|REGISTRADOR:reg
+ 18. Parameter Settings for User Entity Instance: datapath:data|multiplexer2x1:muxcomparacao
+ 19. Parameter Settings for User Entity Instance: datapath:data|frequency_divider:fre_div|REGISTRADOR:REG
+ 20. Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg5
+ 21. Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg4
+ 22. Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg3
+ 23. Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg2
+ 24. Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg1
+ 25. Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg0
+ 26. Port Connectivity Checks: "datapath:data|decod7seg:win7"
+ 27. Port Connectivity Checks: "datapath:data|decod7seg:user7"
+ 28. Port Connectivity Checks: "datapath:data|decod7seg:nivel7"
+ 29. Port Connectivity Checks: "datapath:data|multiplexer:disp7seg1"
+ 30. Port Connectivity Checks: "datapath:data|multiplexer:disp7seg2"
+ 31. Port Connectivity Checks: "datapath:data|decod7seg:decod7seg2_10"
+ 32. Port Connectivity Checks: "datapath:data|decod7seg:decod7seg2_01"
+ 33. Port Connectivity Checks: "datapath:data|multiplexer:disp7seg3"
+ 34. Port Connectivity Checks: "datapath:data|decod7seg:decod7seg3_10"
+ 35. Port Connectivity Checks: "datapath:data|decod7seg:decod7seg3_01"
+ 36. Port Connectivity Checks: "datapath:data|multiplexer:disp7seg4"
+ 37. Port Connectivity Checks: "datapath:data|multiplexer:disp7seg5"
+ 38. Port Connectivity Checks: "datapath:data|counter_time:time_counter"
+ 39. Elapsed Time Per Partition
+ 40. Analysis & Synthesis Messages
 
 
 
@@ -45,14 +71,14 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +-------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status         ; Successful - Sat Nov 10 18:13:43 2018           ;
+; Analysis & Synthesis Status         ; Successful - Mon Nov 12 17:32:07 2018           ;
 ; Quartus II 64-Bit Version           ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                       ; final_project_EEL5105                           ;
-; Top-level Entity Name               ; control                                         ;
+; Top-level Entity Name               ; main                                            ;
 ; Family                              ; Cyclone V                                       ;
 ; Logic utilization (in ALMs)         ; N/A                                             ;
-; Total registers                     ; 6                                               ;
-; Total pins                          ; 19                                              ;
+; Total registers                     ; 45                                              ;
+; Total pins                          ; 67                                              ;
 ; Total virtual pins                  ; 0                                               ;
 ; Total block memory bits             ; 0                                               ;
 ; Total DSP Blocks                    ; 0                                               ;
@@ -73,7 +99,7 @@ applicable agreement for further details.
 ; Option                                                                          ; Setting            ; Default Value         ;
 +---------------------------------------------------------------------------------+--------------------+-----------------------+
 ; Device                                                                          ; 5CSEMA5F31C6       ;                       ;
-; Top-level entity name                                                           ; control            ; final_project_EEL5105 ;
+; Top-level entity name                                                           ; main               ; final_project_EEL5105 ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone IV GX         ;
 ; Use smart compilation                                                           ; Off                ; Off                   ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                    ;
@@ -165,53 +191,81 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                     ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                              ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
-; control.vhd                      ; yes             ; User VHDL File  ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/control.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                     ;
++----------------------------------+-----------------+-----------------------+-------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type             ; File Name with Absolute Path                                                        ; Library ;
++----------------------------------+-----------------+-----------------------+-------------------------------------------------------------------------------------+---------+
+; decod7seg.vhd                    ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/decod7seg.vhd         ;         ;
+; ROM1.vhd                         ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/ROM1.vhd              ;         ;
+; datapath.vhd                     ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/datapath.vhd          ;         ;
+; control.vhd                      ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/control.vhd           ;         ;
+; multiplexer.vhd                  ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/multiplexer.vhd       ;         ;
+; counter_user.vhd                 ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/counter_user.vhd      ;         ;
+; comparator2x1.vhd                ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/comparator2x1.vhd     ;         ;
+; counter_round.vhd                ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/counter_round.vhd     ;         ;
+; counter_time.vhd                 ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/counter_time.vhd      ;         ;
+; main.vhd                         ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/main.vhd              ;         ;
+; multiplexer2x1.vhd               ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/multiplexer2x1.vhd    ;         ;
+; column_decoder.vhd               ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/column_decoder.vhd    ;         ;
+; multiplexer_1bit.vhd             ; yes             ; User VHDL File        ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/multiplexer_1bit.vhd  ;         ;
+; buttonSync.vhd                   ; yes             ; Auto-Found VHDL File  ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/buttonSync.vhd        ;         ;
+; REGISTRADOR.vhd                  ; yes             ; Auto-Found VHDL File  ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/REGISTRADOR.vhd       ;         ;
+; ROM0.vhd                         ; yes             ; Auto-Found VHDL File  ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/ROM0.vhd              ;         ;
+; frequency_divider.vhd            ; yes             ; Auto-Found VHDL File  ; /home/luizaff/Documents/fpEEL5105_clone/final_project_EEL5105/frequency_divider.vhd ;         ;
++----------------------------------+-----------------+-----------------------+-------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 13           ;
-;                                             ;              ;
-; Combinational ALUT usage for logic          ; 22           ;
-;     -- 7 input functions                    ; 0            ;
-;     -- 6 input functions                    ; 3            ;
-;     -- 5 input functions                    ; 2            ;
-;     -- 4 input functions                    ; 2            ;
-;     -- <=3 input functions                  ; 15           ;
-;                                             ;              ;
-; Dedicated logic registers                   ; 6            ;
-;                                             ;              ;
-; I/O pins                                    ; 19           ;
-; Total DSP Blocks                            ; 0            ;
-; Maximum fan-out node                        ; BTN[0]~input ;
-; Maximum fan-out                             ; 13           ;
-; Total fan-out                               ; 120          ;
-; Average fan-out                             ; 1.82         ;
-+---------------------------------------------+--------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 42             ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 73             ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 9              ;
+;     -- 5 input functions                    ; 3              ;
+;     -- 4 input functions                    ; 8              ;
+;     -- <=3 input functions                  ; 53             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 45             ;
+;                                             ;                ;
+; I/O pins                                    ; 67             ;
+; Total DSP Blocks                            ; 0              ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 41             ;
+; Total fan-out                               ; 469            ;
+; Average fan-out                             ; 1.86           ;
++---------------------------------------------+----------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                       ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
-; |control                   ; 22 (22)           ; 6 (6)        ; 0                 ; 0          ; 19   ; 0            ; |control            ; work         ;
-+----------------------------+-------------------+--------------+-------------------+------------+------+--------------+---------------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                             ;
++-----------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node        ; LC Combinationals ; LC Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                ; Library Name ;
++-----------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------------------+--------------+
+; |main                             ; 73 (0)            ; 45 (0)       ; 0                 ; 0          ; 67   ; 0            ; |main                                                              ; work         ;
+;    |buttonSync:btn_sync|          ; 4 (4)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |main|buttonSync:btn_sync                                          ; work         ;
+;    |control:ctrl|                 ; 3 (3)             ; 3 (3)        ; 0                 ; 0          ; 0    ; 0            ; |main|control:ctrl                                                 ; work         ;
+;    |datapath:data|                ; 66 (0)            ; 38 (0)       ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data                                                ; work         ;
+;       |counter_round:count_r|     ; 10 (10)           ; 5 (5)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|counter_round:count_r                          ; work         ;
+;       |counter_time:time_counter| ; 4 (4)             ; 4 (4)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|counter_time:time_counter                      ; work         ;
+;       |decod7seg:decod7seg4_01|   ; 4 (4)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|decod7seg:decod7seg4_01                        ; work         ;
+;       |frequency_divider:fre_div| ; 39 (37)           ; 29 (28)      ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|frequency_divider:fre_div                      ; work         ;
+;          |REGISTRADOR:REG|        ; 1 (1)             ; 1 (1)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|frequency_divider:fre_div|REGISTRADOR:REG      ; work         ;
+;          |multiplexer_1bit:mux|   ; 1 (1)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|frequency_divider:fre_div|multiplexer_1bit:mux ; work         ;
+;       |multiplexer:disp7seg0|     ; 1 (1)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|multiplexer:disp7seg0                          ; work         ;
+;       |multiplexer:disp7seg1|     ; 1 (1)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|multiplexer:disp7seg1                          ; work         ;
+;       |multiplexer:disp7seg4|     ; 7 (7)             ; 0 (0)        ; 0                 ; 0          ; 0    ; 0            ; |main|datapath:data|multiplexer:disp7seg4                          ; work         ;
++-----------------------------------+-------------------+--------------+-------------------+------------+------+--------------+--------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
 Encoding Type:  One-Hot
 +----------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |control|c_state                                                                                                             ;
+; State Machine - |main|control:ctrl|c_state                                                                                                   ;
 +--------------------+--------------------+--------------------+---------------+----------------+--------------+---------------+---------------+
 ; Name               ; c_state.wait_state ; c_state.next_round ; c_state.check ; c_state.result ; c_state.play ; c_state.setup ; c_state.start ;
 +--------------------+--------------------+--------------------+---------------+----------------+--------------+---------------+---------------+
@@ -225,30 +279,96 @@ Encoding Type:  One-Hot
 +--------------------+--------------------+--------------------+---------------+----------------+--------------+---------------+---------------+
 
 
+Encoding Type:  One-Hot
 +---------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                               ;
-+----------------------------------------------------+---------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------+------------------------+
-; n_state.start_424                                  ; Selector0           ; yes                    ;
-; n_state.setup_399                                  ; Selector0           ; yes                    ;
-; n_state.result_349                                 ; Selector0           ; yes                    ;
-; n_state.play_374                                   ; Selector0           ; yes                    ;
-; n_state.check_324                                  ; Selector0           ; yes                    ;
-; n_state.next_round_299                             ; Selector0           ; yes                    ;
-; Number of user-specified and inferred latches = 6  ;                     ;                        ;
-+----------------------------------------------------+---------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+; State Machine - |main|buttonSync:btn_sync|btn3state                                               ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn3state.EsperaSoltar ; btn3state.SaidaAtiva ; btn3state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn3state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn3state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn3state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
 
 
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; c_state.wait_state                    ; Lost fanout        ;
-; Total Number of Removed Registers = 1 ;                    ;
-+---------------------------------------+--------------------+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |main|buttonSync:btn_sync|btn2state                                               ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn2state.EsperaSoltar ; btn2state.SaidaAtiva ; btn2state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn2state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn2state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn2state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |main|buttonSync:btn_sync|btn1state                                               ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn1state.EsperaSoltar ; btn1state.SaidaAtiva ; btn1state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn1state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn1state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn1state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |main|buttonSync:btn_sync|btn0state                                               ;
++-------------------------+------------------------+----------------------+-------------------------+
+; Name                    ; btn0state.EsperaSoltar ; btn0state.SaidaAtiva ; btn0state.EsperaApertar ;
++-------------------------+------------------------+----------------------+-------------------------+
+; btn0state.EsperaApertar ; 0                      ; 0                    ; 0                       ;
+; btn0state.SaidaAtiva    ; 0                      ; 1                    ; 1                       ;
+; btn0state.EsperaSoltar  ; 1                      ; 0                    ; 1                       ;
++-------------------------+------------------------+----------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                     ;
++--------------------------------------------------------------+---------------------------------------------------------+
+; Register name                                                ; Reason for Removal                                      ;
++--------------------------------------------------------------+---------------------------------------------------------+
+; datapath:data|REGISTRADOR:reg|Q[0..6]                        ; Lost fanout                                             ;
+; datapath:data|counter_user:counter_user1|count[0..3]         ; Stuck at GND due to stuck port clock_enable             ;
+; datapath:data|counter_user:counter_user0|count[0..3]         ; Stuck at GND due to stuck port clock_enable             ;
+; datapath:data|counter_user:counter_user0|tc                  ; Merged with datapath:data|counter_user:counter_user1|tc ;
+; datapath:data|counter_user:counter_user1|tc                  ; Stuck at GND due to stuck port data_in                  ;
+; datapath:data|counter_round:count_r|tc                       ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn3state.SaidaAtiva                     ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn3state.EsperaSoltar                   ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn3state.EsperaApertar                  ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn2state.EsperaSoltar                   ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn1state.EsperaSoltar                   ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn0state.EsperaSoltar                   ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn2state.SaidaAtiva                     ; Lost fanout                                             ;
+; buttonSync:btn_sync|btn2state.EsperaApertar                  ; Lost fanout                                             ;
+; control:ctrl|c_state.check                                   ; Stuck at GND due to stuck port data_in                  ;
+; control:ctrl|c_state.next_round                              ; Stuck at GND due to stuck port data_in                  ;
+; control:ctrl|c_state.wait_state                              ; Stuck at GND due to stuck port data_in                  ;
+; control:ctrl|c_state.result                                  ; Stuck at GND due to stuck port data_in                  ;
+; datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[1] ; Stuck at GND due to stuck port data_in                  ;
+; Total Number of Removed Registers = 31                       ;                                                         ;
++--------------------------------------------------------------+---------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                       ;
++---------------------------------------------------+--------------------------------+--------------------------------------------------------------+
+; Register name                                     ; Reason for Removal             ; Registers Removed due to This Register                       ;
++---------------------------------------------------+--------------------------------+--------------------------------------------------------------+
+; control:ctrl|c_state.check                        ; Stuck at GND                   ; control:ctrl|c_state.result,                                 ;
+;                                                   ; due to stuck port data_in      ; datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[1] ;
+; datapath:data|counter_user:counter_user1|count[3] ; Stuck at GND                   ; datapath:data|counter_round:count_r|tc                       ;
+;                                                   ; due to stuck port clock_enable ;                                                              ;
+; buttonSync:btn_sync|btn3state.SaidaAtiva          ; Lost Fanouts                   ; buttonSync:btn_sync|btn3state.EsperaApertar                  ;
+; buttonSync:btn_sync|btn2state.EsperaSoltar        ; Lost Fanouts                   ; buttonSync:btn_sync|btn2state.EsperaApertar                  ;
+; control:ctrl|c_state.next_round                   ; Stuck at GND                   ; control:ctrl|c_state.wait_state                              ;
+;                                                   ; due to stuck port data_in      ;                                                              ;
++---------------------------------------------------+--------------------------------+--------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -256,23 +376,273 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 6     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 45    ;
+; Number of registers using Synchronous Clear  ; 28    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 6     ;
+; Number of registers using Asynchronous Clear ; 41    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 33    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |control|n_state.result    ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |main|datapath:data|multiplexer:disp7seg0|Mux3      ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main|datapath:data|column_decoder:column|output[1] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |main|datapath:data|multiplexer:disp7seg3|Mux6      ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |main|datapath:data|multiplexer:disp7seg3|Mux2      ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 12 LEs               ; 2 LEs                  ; No         ; |main|datapath:data|multiplexer:disp7seg3|Mux4      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|REGISTRADOR:reg ;
++----------------+-------+---------------------------------------------------+
+; Parameter Name ; Value ; Type                                              ;
++----------------+-------+---------------------------------------------------+
+; width          ; 10    ; Signed Integer                                    ;
++----------------+-------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|multiplexer2x1:muxcomparacao ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; width          ; 7     ; Signed Integer                                                 ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|frequency_divider:fre_div|REGISTRADOR:REG ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; width          ; 2     ; Signed Integer                                                              ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg5 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; width          ; 7     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg4 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; width          ; 7     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg3 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; width          ; 7     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; width          ; 7     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; width          ; 7     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: datapath:data|multiplexer:disp7seg0 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; width          ; 7     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|decod7seg:win7" ;
++---------+-------+----------+-----------------------------+
+; Port    ; Type  ; Severity ; Details                     ;
++---------+-------+----------+-----------------------------+
+; c[3..1] ; Input ; Info     ; Stuck at GND                ;
++---------+-------+----------+-----------------------------+
+
+
++-----------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|decod7seg:user7" ;
++---------+-------+----------+------------------------------+
+; Port    ; Type  ; Severity ; Details                      ;
++---------+-------+----------+------------------------------+
+; c[3..1] ; Input ; Info     ; Stuck at GND                 ;
++---------+-------+----------+------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|decod7seg:nivel7" ;
++---------+-------+----------+-------------------------------+
+; Port    ; Type  ; Severity ; Details                       ;
++---------+-------+----------+-------------------------------+
+; c[3..2] ; Input ; Info     ; Stuck at GND                  ;
++---------+-------+----------+-------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|multiplexer:disp7seg1" ;
++---------+-------+----------+------------------------------------+
+; Port    ; Type  ; Severity ; Details                            ;
++---------+-------+----------+------------------------------------+
+; a       ; Input ; Info     ; Stuck at VCC                       ;
+; b[2..0] ; Input ; Info     ; Stuck at VCC                       ;
+; b[6..3] ; Input ; Info     ; Stuck at GND                       ;
+; c[3..0] ; Input ; Info     ; Stuck at VCC                       ;
+; c[6]    ; Input ; Info     ; Stuck at GND                       ;
+; c[5]    ; Input ; Info     ; Stuck at VCC                       ;
+; c[4]    ; Input ; Info     ; Stuck at GND                       ;
+; d[5..1] ; Input ; Info     ; Stuck at GND                       ;
+; d[6]    ; Input ; Info     ; Stuck at VCC                       ;
+; d[0]    ; Input ; Info     ; Stuck at VCC                       ;
++---------+-------+----------+------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|multiplexer:disp7seg2" ;
++---------+-------+----------+------------------------------------+
+; Port    ; Type  ; Severity ; Details                            ;
++---------+-------+----------+------------------------------------+
+; a       ; Input ; Info     ; Stuck at VCC                       ;
+; b[2..0] ; Input ; Info     ; Stuck at VCC                       ;
+; b[6..3] ; Input ; Info     ; Stuck at GND                       ;
+; c[3..0] ; Input ; Info     ; Stuck at VCC                       ;
+; c[6]    ; Input ; Info     ; Stuck at GND                       ;
+; c[5]    ; Input ; Info     ; Stuck at VCC                       ;
+; c[4]    ; Input ; Info     ; Stuck at GND                       ;
+; d[5..1] ; Input ; Info     ; Stuck at GND                       ;
+; d[6]    ; Input ; Info     ; Stuck at VCC                       ;
+; d[0]    ; Input ; Info     ; Stuck at VCC                       ;
++---------+-------+----------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|decod7seg:decod7seg2_10"                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; f    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|decod7seg:decod7seg2_01"                                              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; f    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|multiplexer:disp7seg3" ;
++---------+-------+----------+------------------------------------+
+; Port    ; Type  ; Severity ; Details                            ;
++---------+-------+----------+------------------------------------+
+; a       ; Input ; Info     ; Stuck at VCC                       ;
+; d[5..1] ; Input ; Info     ; Stuck at GND                       ;
+; d[6]    ; Input ; Info     ; Stuck at VCC                       ;
+; d[0]    ; Input ; Info     ; Stuck at VCC                       ;
++---------+-------+----------+------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|decod7seg:decod7seg3_10" ;
++---------+-------+----------+--------------------------------------+
+; Port    ; Type  ; Severity ; Details                              ;
++---------+-------+----------+--------------------------------------+
+; c[3..1] ; Input ; Info     ; Stuck at GND                         ;
++---------+-------+----------+--------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|decod7seg:decod7seg3_01" ;
++------+-------+----------+-----------------------------------------+
+; Port ; Type  ; Severity ; Details                                 ;
++------+-------+----------+-----------------------------------------+
+; c[3] ; Input ; Info     ; Stuck at GND                            ;
++------+-------+----------+-----------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|multiplexer:disp7seg4" ;
++---------+-------+----------+------------------------------------+
+; Port    ; Type  ; Severity ; Details                            ;
++---------+-------+----------+------------------------------------+
+; a       ; Input ; Info     ; Stuck at VCC                       ;
+; c[4..1] ; Input ; Info     ; Stuck at GND                       ;
+; c[6]    ; Input ; Info     ; Stuck at GND                       ;
+; c[5]    ; Input ; Info     ; Stuck at VCC                       ;
+; c[0]    ; Input ; Info     ; Stuck at VCC                       ;
+; d[6..5] ; Input ; Info     ; Stuck at GND                       ;
+; d[3..2] ; Input ; Info     ; Stuck at GND                       ;
+; d[4]    ; Input ; Info     ; Stuck at VCC                       ;
+; d[1]    ; Input ; Info     ; Stuck at VCC                       ;
+; d[0]    ; Input ; Info     ; Stuck at GND                       ;
++---------+-------+----------+------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|multiplexer:disp7seg5" ;
++---------+-------+----------+------------------------------------+
+; Port    ; Type  ; Severity ; Details                            ;
++---------+-------+----------+------------------------------------+
+; a       ; Input ; Info     ; Stuck at VCC                       ;
+; b[2..0] ; Input ; Info     ; Stuck at VCC                       ;
+; b[6..3] ; Input ; Info     ; Stuck at GND                       ;
+; c[3..0] ; Input ; Info     ; Stuck at VCC                       ;
+; c[6]    ; Input ; Info     ; Stuck at GND                       ;
+; c[5]    ; Input ; Info     ; Stuck at VCC                       ;
+; c[4]    ; Input ; Info     ; Stuck at GND                       ;
+; d[5..1] ; Input ; Info     ; Stuck at GND                       ;
+; d[6]    ; Input ; Info     ; Stuck at VCC                       ;
+; d[0]    ; Input ; Info     ; Stuck at VCC                       ;
++---------+-------+----------+------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "datapath:data|counter_time:time_counter"                                            ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; tc   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -290,13 +660,10 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Nov 10 18:13:41 2018
+    Info: Processing started: Mon Nov 12 17:32:04 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off final_project_EEL5105 -c final_project_EEL5105
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Warning (12019): Can't analyze file -- file frequency_divisor.vhd is missing
-Info (12021): Found 2 design units, including 1 entities, in source file frequency_divider.vhd
-    Info (12022): Found design unit 1: frequency_divider-top
-    Info (12023): Found entity 1: frequency_divider
 Info (12021): Found 2 design units, including 1 entities, in source file decod7seg.vhd
     Info (12022): Found design unit 1: decod7seg-decod
     Info (12023): Found entity 1: decod7seg
@@ -312,55 +679,119 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
 Info (12021): Found 2 design units, including 1 entities, in source file multiplexer.vhd
     Info (12022): Found design unit 1: multiplexer-bhv
     Info (12023): Found entity 1: multiplexer
-Warning (12019): Can't analyze file -- file multiplexer_8bits.vhd is missing
-Info (12021): Found 2 design units, including 1 entities, in source file multiplexer_7bits.vhd
-    Info (12022): Found design unit 1: multiplexer_7bits-bhv
-    Info (12023): Found entity 1: multiplexer_7bits
-Info (12127): Elaborating entity "control" for the top level hierarchy
-Warning (10812): VHDL warning at control.vhd(34): sensitivity list already contains BTN
-Warning (10492): VHDL Process Statement warning at control.vhd(36): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at control.vhd(65): signal "end_time" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at control.vhd(67): signal "end_time" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at control.vhd(69): signal "end_time" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at control.vhd(79): signal "end_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at control.vhd(79): signal "sw_error" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at control.vhd(79): signal "end_round" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10492): VHDL Process Statement warning at control.vhd(81): signal "end_game" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
-Warning (10631): VHDL Process Statement warning at control.vhd(34): inferring latch(es) for signal or variable "n_state", which holds its previous value in one or more paths through the process
-Info (10041): Inferred latch for "n_state.wait_state" at control.vhd(34)
-Info (10041): Inferred latch for "n_state.next_round" at control.vhd(34)
-Info (10041): Inferred latch for "n_state.check" at control.vhd(34)
-Info (10041): Inferred latch for "n_state.result" at control.vhd(34)
-Info (10041): Inferred latch for "n_state.play" at control.vhd(34)
-Info (10041): Inferred latch for "n_state.setup" at control.vhd(34)
-Info (10041): Inferred latch for "n_state.start" at control.vhd(34)
-Warning (13012): Latch n_state.start_424 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal BTN[0]
-Warning (13012): Latch n_state.setup_399 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal BTN[1]
-Warning (13012): Latch n_state.result_349 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal BTN[0]
-Warning (13012): Latch n_state.play_374 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal BTN[0]
-Warning (13012): Latch n_state.check_324 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal BTN[0]
-Warning (13012): Latch n_state.next_round_299 has unsafe behavior
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal BTN[0]
+Info (12021): Found 2 design units, including 1 entities, in source file counter_user.vhd
+    Info (12022): Found design unit 1: counter_user-bhv
+    Info (12023): Found entity 1: counter_user
+Info (12021): Found 2 design units, including 1 entities, in source file comparator2x1.vhd
+    Info (12022): Found design unit 1: comparator2x1-bhv
+    Info (12023): Found entity 1: comparator2x1
+Info (12021): Found 2 design units, including 1 entities, in source file counter_round.vhd
+    Info (12022): Found design unit 1: counter_round-bhv
+    Info (12023): Found entity 1: counter_round
+Info (12021): Found 2 design units, including 1 entities, in source file counter_time.vhd
+    Info (12022): Found design unit 1: counter_time-bhv
+    Info (12023): Found entity 1: counter_time
+Info (12021): Found 2 design units, including 1 entities, in source file main.vhd
+    Info (12022): Found design unit 1: main-top
+    Info (12023): Found entity 1: main
+Info (12021): Found 2 design units, including 1 entities, in source file multiplexer2x1.vhd
+    Info (12022): Found design unit 1: multiplexer2x1-bhv
+    Info (12023): Found entity 1: multiplexer2x1
+Info (12021): Found 2 design units, including 1 entities, in source file column_decoder.vhd
+    Info (12022): Found design unit 1: column_decoder-bhv
+    Info (12023): Found entity 1: column_decoder
+Info (12021): Found 2 design units, including 1 entities, in source file multiplexer_1bit.vhd
+    Info (12022): Found design unit 1: multiplexer_1bit-bhv
+    Info (12023): Found entity 1: multiplexer_1bit
+Info (12127): Elaborating entity "main" for the top level hierarchy
+Warning (12125): Using design file buttonSync.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: buttonSync-ButtonSyncImpl
+    Info (12023): Found entity 1: buttonSync
+Info (12128): Elaborating entity "buttonSync" for hierarchy "buttonSync:btn_sync"
+Info (12128): Elaborating entity "control" for hierarchy "control:ctrl"
+Warning (10812): VHDL warning at control.vhd(30): sensitivity list already contains BTN
+Warning (10492): VHDL Process Statement warning at control.vhd(32): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at control.vhd(38): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at control.vhd(50): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at control.vhd(62): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at control.vhd(90): signal "c_state" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "datapath" for hierarchy "datapath:data"
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(12): used implicit default value for signal "end_time" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(22): used implicit default value for signal "LINHA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(27): used implicit default value for signal "sw_error_s" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at datapath.vhd(27): used implicit default value for signal "end_time_s" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(31): object "coluna_7seg" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at datapath.vhd(31): object "ROUNDLSB_7seg" assigned a value but never read
+Info (12128): Elaborating entity "counter_round" for hierarchy "datapath:data|counter_round:count_r"
+Info (12128): Elaborating entity "counter_user" for hierarchy "datapath:data|counter_user:counter_user0"
+Warning (12125): Using design file REGISTRADOR.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: REGISTRADOR-behv
+    Info (12023): Found entity 1: REGISTRADOR
+Info (12128): Elaborating entity "REGISTRADOR" for hierarchy "datapath:data|REGISTRADOR:reg"
+Warning (12125): Using design file ROM0.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: ROM0-Rom_Arch
+    Info (12023): Found entity 1: ROM0
+Info (12128): Elaborating entity "ROM0" for hierarchy "datapath:data|ROM0:memoria0"
+Info (12128): Elaborating entity "ROM1" for hierarchy "datapath:data|ROM1:memoria1"
+Info (12128): Elaborating entity "multiplexer2x1" for hierarchy "datapath:data|multiplexer2x1:muxcomparacao"
+Info (12128): Elaborating entity "comparator2x1" for hierarchy "datapath:data|comparator2x1:comparacaolinha"
+Info (12128): Elaborating entity "column_decoder" for hierarchy "datapath:data|column_decoder:column"
+Warning (12125): Using design file frequency_divider.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info (12022): Found design unit 1: frequency_divider-top
+    Info (12023): Found entity 1: frequency_divider
+Info (12128): Elaborating entity "frequency_divider" for hierarchy "datapath:data|frequency_divider:fre_div"
+Info (12128): Elaborating entity "REGISTRADOR" for hierarchy "datapath:data|frequency_divider:fre_div|REGISTRADOR:REG"
+Info (12128): Elaborating entity "multiplexer_1bit" for hierarchy "datapath:data|frequency_divider:fre_div|multiplexer_1bit:mux"
+Info (12128): Elaborating entity "counter_time" for hierarchy "datapath:data|counter_time:time_counter"
+Info (12128): Elaborating entity "multiplexer" for hierarchy "datapath:data|multiplexer:disp7seg5"
+Info (12128): Elaborating entity "decod7seg" for hierarchy "datapath:data|decod7seg:decod7seg4_01"
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer datapath:data|frequency_divider:fre_div|multiplexer_1bit:mux|Mux0
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC
+    Warning (13410): Pin "HEX5[0]" is stuck at VCC
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 1 registers lost all their fanouts during netlist optimizations.
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "win0"
-    Warning (15610): No output dependent on input pin "win1"
-Info (21057): Implemented 46 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 27 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 28 warnings
-    Info: Peak virtual memory: 665 megabytes
-    Info: Processing ended: Sat Nov 10 18:13:43 2018
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+Warning (21074): Design contains 12 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[7]"
+    Warning (15610): No output dependent on input pin "SW[8]"
+    Warning (15610): No output dependent on input pin "SW[9]"
+    Warning (15610): No output dependent on input pin "SW[0]"
+    Warning (15610): No output dependent on input pin "SW[1]"
+    Warning (15610): No output dependent on input pin "SW[2]"
+    Warning (15610): No output dependent on input pin "SW[3]"
+    Warning (15610): No output dependent on input pin "SW[4]"
+    Warning (15610): No output dependent on input pin "SW[5]"
+    Warning (15610): No output dependent on input pin "SW[6]"
+    Warning (15610): No output dependent on input pin "KEY[3]"
+    Warning (15610): No output dependent on input pin "KEY[2]"
+Info (21057): Implemented 141 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 15 input pins
+    Info (21059): Implemented 52 output pins
+    Info (21061): Implemented 74 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 663 megabytes
+    Info: Processing ended: Mon Nov 12 17:32:07 2018
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:03
 
 

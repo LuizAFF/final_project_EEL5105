@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity counter_user is 
+	port	(
+			R, E, Clock: in std_logic;
+			tc: out std_logic;
+			counter: out std_ulogic_vector(3 downto 0)
+			);
+end counter_user;
+
+architecture bhv of counter_user is
+	signal comparator, en_adder: std_logic;
+	signal sum: std_logic_vector(3 downto 0);
+	
+	component REGISTRADOR is
+		port	(
+				CLK: in std_logic;
+				EN: in std_logic;
+				RST: in std_logic;
+				D: in std_logic_vector(WIDTH-1 downto 0);
+				Q: out std_logic_vector(WIDTH-1 downto 0)
+				);
+	end component;
+	
+	begin
+		
+			
+		

@@ -1,5 +1,5 @@
 Assembler report for final_project_EEL5105
-Sat Nov 10 18:15:18 2018
+Mon Nov 12 17:33:46 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -35,9 +35,9 @@ applicable agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sat Nov 10 18:15:18 2018 ;
+; Assembler Status      ; Successful - Mon Nov 12 17:33:46 2018 ;
 ; Revision Name         ; final_project_EEL5105                 ;
-; Top-level Entity Name ; control                               ;
+; Top-level Entity Name ; main                                  ;
 ; Family                ; Cyclone V                             ;
 ; Device                ; 5CSEMA5F31C6                          ;
 +-----------------------+---------------------------------------+
@@ -81,13 +81,13 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Sat Nov 10 18:15:16 2018
+    Info: Processing started: Mon Nov 12 17:33:45 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off final_project_EEL5105 -c final_project_EEL5105
 Info (115015): Compilation Report contains advance information. Specifications for device 5CSEMA5F31C6 are subject to change. Contact Altera for information on availability. No programming file will be generated.
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 577 megabytes
-    Info: Processing ended: Sat Nov 10 18:15:18 2018
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Mon Nov 12 17:33:46 2018
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 
