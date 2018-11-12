@@ -10,7 +10,7 @@ entity frequency_divider is
 			Output: out std_logic
 			);
 			
-end frequency_divider;
+end entity;
 
 architecture top of frequency_divider is
 	
@@ -85,5 +85,6 @@ architecture top of frequency_divider is
 						port map (clock, enable1, reset1, Sel, Sel_reg);
 	mux: multiplexer_1bit port map (clock_05hz, clock_1hz, clock_2hz, clock_4hz, Sel_reg, Output);
 	Nivel <= Sel_reg;
+
 	
-end top;
+end architecture;

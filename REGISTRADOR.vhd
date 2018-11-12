@@ -10,6 +10,7 @@ entity REGISTRADOR is
 		  D: in std_logic_vector(WIDTH-1 downto 0);
 		  Q: out std_logic_vector(WIDTH-1 downto 0)
 		  );
+
 end entity;
 
 architecture behv of REGISTRADOR is

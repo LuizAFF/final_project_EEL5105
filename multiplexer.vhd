@@ -15,7 +15,7 @@ architecture bhv of multiplexer is
 begin 
       with Sel select
          Output <= a when "00",
-         	   b when "01",
-        	   c when "10",
-		  d when others; 
+						 b when "01",
+						 c when "10",
+						 d when others; 
 end architecture;
