@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity comparator2x1 is
+	port	(
+			A, B: in std_logic_vector(BUS_WIDTH-1 downto 0);
+			C: out std_logic
+			);
+end comparator2x1;
+
+architecture bhv of comparator2x1 is
+	begin
+		C <= '1' when (unsigned(A) = unsigned(B)) else '0';
+end bhv;

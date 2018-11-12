@@ -1,12 +1,13 @@
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 
 entity multiplexer is
-   generic(BUS_WIDTH: NATURAL := 1); -- If '0', 1 bit. If '1', 2 bits etc
-   port	(
+   generic(WIDTH: POSITIVE := 8);
+	port	(
+			a, b, c, d: in std_logic_vector(WIDTH-1 downto 0); 
 			Sel : in std_logic_vector(1 downto 0);
-			a, b, c, d: in std_logic_vector(BUS_WIDTH downto 0); 
-			Output : out std_logic_vector(BUS_WIDTH downto 0)
+			Output : out std_logic_vector(WIDTH-1 downto 0)
 			);
 end entity;
  

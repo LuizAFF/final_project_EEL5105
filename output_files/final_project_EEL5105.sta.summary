@@ -2,132 +2,164 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'BTN[0]'
-Slack : -1.709
-TNS   : -9.863
+Type  : Slow 1100mV 85C Model Setup 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -3.432
+TNS   : -12.297
 
-Type  : Slow 1100mV 85C Model Setup 'clock'
-Slack : -0.200
-TNS   : -0.373
+Type  : Slow 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -2.716
+TNS   : -80.289
 
-Type  : Slow 1100mV 85C Model Hold 'BTN[0]'
-Slack : -1.071
-TNS   : -6.141
+Type  : Slow 1100mV 85C Model Hold 'CLOCK_50'
+Slack : -0.854
+TNS   : -0.854
 
-Type  : Slow 1100mV 85C Model Hold 'clock'
-Slack : -0.544
-TNS   : -2.159
-
-Type  : Slow 1100mV 85C Model Recovery 'clock'
-Slack : 0.011
+Type  : Slow 1100mV 85C Model Hold 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 0.522
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Removal 'clock'
-Slack : -0.639
-TNS   : -3.814
+Type  : Slow 1100mV 85C Model Recovery 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -2.964
+TNS   : -11.845
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clock'
+Type  : Slow 1100mV 85C Model Recovery 'CLOCK_50'
+Slack : -0.549
+TNS   : -12.745
+
+Type  : Slow 1100mV 85C Model Removal 'CLOCK_50'
+Slack : 0.544
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Removal 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 2.883
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
 Slack : -0.394
-TNS   : -3.072
+TNS   : -21.803
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'BTN[0]'
-Slack : 0.179
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Setup 'BTN[0]'
-Slack : -1.787
-TNS   : -10.461
-
-Type  : Slow 1100mV 0C Model Setup 'clock'
-Slack : -0.113
-TNS   : -0.189
-
-Type  : Slow 1100mV 0C Model Hold 'BTN[0]'
-Slack : -1.113
-TNS   : -6.298
-
-Type  : Slow 1100mV 0C Model Hold 'clock'
-Slack : -0.617
-TNS   : -2.709
-
-Type  : Slow 1100mV 0C Model Recovery 'clock'
-Slack : 0.175
-TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Removal 'clock'
-Slack : -0.762
-TNS   : -4.547
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clock'
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
 Slack : -0.394
-TNS   : -3.326
+TNS   : -2.171
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'BTN[0]'
-Slack : 0.184
+Type  : Slow 1100mV 0C Model Setup 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -3.514
+TNS   : -12.352
+
+Type  : Slow 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -2.630
+TNS   : -78.042
+
+Type  : Slow 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -1.017
+TNS   : -1.017
+
+Type  : Slow 1100mV 0C Model Hold 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 0.505
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Setup 'BTN[0]'
-Slack : -0.696
-TNS   : -3.871
+Type  : Slow 1100mV 0C Model Recovery 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -3.009
+TNS   : -12.029
 
-Type  : Fast 1100mV 85C Model Setup 'clock'
-Slack : 0.355
+Type  : Slow 1100mV 0C Model Recovery 'CLOCK_50'
+Slack : -0.511
+TNS   : -11.466
+
+Type  : Slow 1100mV 0C Model Removal 'CLOCK_50'
+Slack : 0.496
 TNS   : 0.000
 
-Type  : Fast 1100mV 85C Model Hold 'BTN[0]'
-Slack : -0.550
-TNS   : -3.125
-
-Type  : Fast 1100mV 85C Model Hold 'clock'
-Slack : -0.373
-TNS   : -1.554
-
-Type  : Fast 1100mV 85C Model Recovery 'clock'
-Slack : -0.139
-TNS   : -0.833
-
-Type  : Fast 1100mV 85C Model Removal 'clock'
-Slack : -0.409
-TNS   : -2.449
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clock'
-Slack : -0.082
-TNS   : -0.491
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'BTN[0]'
-Slack : -0.043
-TNS   : -0.099
-
-Type  : Fast 1100mV 0C Model Setup 'BTN[0]'
-Slack : -0.666
-TNS   : -3.658
-
-Type  : Fast 1100mV 0C Model Setup 'clock'
-Slack : 0.400
+Type  : Slow 1100mV 0C Model Removal 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 2.927
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Hold 'BTN[0]'
-Slack : -0.523
-TNS   : -3.018
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.394
+TNS   : -23.367
 
-Type  : Fast 1100mV 0C Model Hold 'clock'
-Slack : -0.377
-TNS   : -1.658
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -0.394
+TNS   : -2.196
 
-Type  : Fast 1100mV 0C Model Recovery 'clock'
-Slack : -0.093
-TNS   : -0.557
+Type  : Fast 1100mV 85C Model Setup 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -1.604
+TNS   : -5.531
 
-Type  : Fast 1100mV 0C Model Removal 'clock'
-Slack : -0.431
-TNS   : -2.581
+Type  : Fast 1100mV 85C Model Setup 'CLOCK_50'
+Slack : -1.279
+TNS   : -33.895
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clock'
-Slack : -0.083
-TNS   : -0.496
+Type  : Fast 1100mV 85C Model Hold 'CLOCK_50'
+Slack : -0.337
+TNS   : -0.337
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'BTN[0]'
-Slack : -0.040
-TNS   : -0.227
+Type  : Fast 1100mV 85C Model Hold 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 0.275
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Recovery 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -1.340
+TNS   : -5.356
+
+Type  : Fast 1100mV 85C Model Recovery 'CLOCK_50'
+Slack : 0.073
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'CLOCK_50'
+Slack : 0.288
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Removal 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 1.606
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.087
+TNS   : -3.422
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 0.152
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -1.537
+TNS   : -5.224
+
+Type  : Fast 1100mV 0C Model Setup 'CLOCK_50'
+Slack : -1.054
+TNS   : -27.590
+
+Type  : Fast 1100mV 0C Model Hold 'CLOCK_50'
+Slack : -0.472
+TNS   : -0.472
+
+Type  : Fast 1100mV 0C Model Hold 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 0.249
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Recovery 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : -1.266
+TNS   : -5.062
+
+Type  : Fast 1100mV 0C Model Recovery 'CLOCK_50'
+Slack : 0.155
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'CLOCK_50'
+Slack : 0.259
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Removal 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 1.563
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -0.086
+TNS   : -3.471
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'datapath:data|frequency_divider:fre_div|REGISTRADOR:REG|Q[0]'
+Slack : 0.145
+TNS   : 0.000
 
 ------------------------------------------------------------
